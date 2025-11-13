@@ -1,40 +1,42 @@
-Data Analysis & Visualization of Swiss Glaciers: Predicting Ice Melt.
+Visualization and Analysis of Swiss Glaciers data.
 
-Swiss glaciers are iconic symbols of the Alps and critical sources of freshwater and the start of some of the 
-most important rivers in Europe. Unfortunately, they are rapidly retreating due to climate change. Over the past 
-century, glaciers like the Aletsch Glacier and Rhone Glacier have lost significant volume, threatening water 
-supplies, ecosystems, and tourism. To measure these impacts, scientists collect various data around the glaciers 
-such as temperature and yearly measurements of ice thickness and overall estimated volume to quantify the 
-effects of climate change on the glaciers. 
+Swiss glaciers are iconic symbols of the Alps, critical sources of freshwater and the start of some of the most 
+important rivers in Europe. Unfortunately, they are rapidly retreating due to climate change. Glaciers of the Aletsch 
+or Rhone for instance have lost significant volume, threatening water supplies, ecosystems and economies. 
+To measure these impacts, scientists collect various data around the glaciers such as volume, length or mass balance.
+These are then often put into perspective with temperature averages and anomalies to directly quantify the effects of 
+climate change on glacier retreat. 
 
-This project aims to analyze historical data on Swiss glaciers and use statistical models to predict glacier 
-melt, to understand how scientists collect and use data for their analyzes and predictions.
-Visualize trends in glacier retreat.
-Considered statistical analyzes include the identification of correlations between climate variables and glacier 
-melt, possibly make linear regression of glacier melt as a function of temperature and precipitation.
-Use time series to forecast ice melt over the upcoming years. 
-Perhaps do some supervised learning for identifying key drivers of glacier retreat.
 
-Sources:
-Swiss Glacier Monitoring Network (GLAMOS) for historical glacier data. Gives information on length, mass balance 
-and volume variations for the most important swiss glaciers since at least 1973 and for some variables 1950. 
-Climate data (temperature, precipitation) from MeteoSwiss or other open source historical databases on climate
-and weather.
+This project aims to analyze historical data on Swiss glaciers and use statistical models to forecast the following 
+continuous variables for the upcoming years: length change, volume change and mass balance.
+
+I will start my project with some data visualization that will allow me to better understand it and potentially 
+identify some trends that would be useful for the forecasting model.
+
+To train and test the data I will use a temporal split approach that allows to check how well the models predict 
+future unknown values instead of a spatial split that might be very efficient for predicting present data on unseen 
+glaciers based on historical values, but would perhaps not include all the relevant factors that influence changes 
+over time and would therefore not be applicable to the future.
+
+
+Sources: 
+Swiss Glacier Monitoring Network (GLAMOS) provides yearly measurements of length change, mass balance 
+and volume change for the most important swiss glaciers and over several decades
 Functions in python : scikit-learn, statsmodels, pandas, matplotlib, seaborn, plotly
 
 Expected challenges:
 I am not an environmental science expert which probably makes the data harder to understand and all the 
 possible variables to include in the analyzes more difficult to identify correctly. 
 However, one of the advantage of the data is that it is provided by a group of students and scientists at the 
-EHZ which, not only makes it more reliable in my opinion, but also allows for the possibility of getting in 
-touch with them directly and get more information on the subject.  
+ETH Zuich which, not only makes it more reliable in my opinion, but also allows for the possibility of getting 
+more information if needed by directly contacting them. 
 
 Success criteria:
-Compare results and forecasts with scientifical reports on the subject. For example, try to predict how many
-glaciers will have entirely melted by 2100 and compare the obtained results with that of scientists in published 
-reports on the subject. 
+To assess how good the models fit the data I consider using the R² and then to analyze the final results, use the 
+RMSE.
+Compare results and forecasts with scientifical reports on the subject. 
 
 
 Stretch goals:
 Implement neural networks (e.g., LSTM) for improved time-series forecasting of glacier melt.
-
