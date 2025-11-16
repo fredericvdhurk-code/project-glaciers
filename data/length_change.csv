@@ -1,4 +1,4 @@
-glacier name,glacier id,start date of observation (yyyy-mm-dd),quality of start date,end date of observation (yyyy-mm-dd),quality of end date,length change (m),elevation of glacier tongue (m asl),observer
+glacier name,glacier id,start date of observation (yyyy-mm-dd),quality of start date,end date of observation (yyyy-mm-dd),quality of end date,length change (m),elevation of glacier tongue (m asl.),observer
 Silvrettagletscher,A10g-05,1956-09-01,x,1957-09-01,x,-8.00,None,-
 Silvrettagletscher,A10g-05,1957-09-01,x,1958-09-01,x,-9.00,None,-
 Silvrettagletscher,A10g-05,1958-09-01,x,1959-09-01,x,-16.00,None,-

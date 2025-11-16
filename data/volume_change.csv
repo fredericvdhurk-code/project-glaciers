@@ -1,4 +1,4 @@
-Name,SGI-ID,source_start,Source_end,date_start (yyyymmdd),date_end (yyyymmdd),A_start (km2),outline_start (yyyy),A_end (km2),outline_end (yyyy),dV (km3),dh_mean (m),Bgeod (mw.e.a-1),sigma (mw.e.),covered (%),rho_dv (kgm-3)
+glacier name,SGI-ID,source_start,Source_end,date_start (yyyymmdd),date_end (yyyymmdd),A_start (km2),outline_start (yyyy),A_end (km2),outline_end (yyyy),dV (km3),dh_mean (m),Bgeod (mw.e.a-1),sigma (mw.e.),covered (%),rho_dv (kgm-3)
 Seegletscher,A10g-02,dhm25-l1,sa3d-2021,19919999,20149999,0.5900,1973,0.3075,2014,-0.010134,-17.139,-0.835,-99.000,100.0,850
 Silvrettahorn,A10g-04,dhm25-l1,is-spez,19859999,20120820,0.0392,1973,0.0150,2014,-0.000247,-6.170,-0.287,-99.000,100.0,850
 Silvrettahorn,A10g-04,is-spez,is-spez,20120820,20170825,0.0150,2014,0.0150,2014,-0.000072,-4.777,-0.812,-99.000,96.7,850
