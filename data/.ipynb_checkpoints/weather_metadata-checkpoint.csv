@@ -1,0 +1,11 @@
+parameter_shortname,parameter_description_en,parameter_unit
+rh9120mv,Precipitation; relation of the homogeneous monthly total to the norm 9120,%
+rhs150m0,Precipitation; homogeneous monthly total,mm
+sh9120mv,Sunshine duration; relation of the homogeneous monthly total to the norm 9120,%
+shs000m0,Sunshine duration; homogeneous monthly total,min
+th9120mv,Air temperature 2 m above ground; deviation of the homogeneous monthly mean to the norm 9120,°C
+th91dnmv,Air temperature 2 m above ground; deviation of the homogeneous monthly mean of the daily minima to the norm 9120,°C
+th91dxmv,Air temperature 2 m above ground; deviation of the homogeneous monthly mean of the daily maxima to the norm 9120,°C
+ths200m0,Air temperature 2 m above ground; homogeneous monthly mean,°C
+ths2dymn,Air temperature 2 m above ground; homogeneous monthly mean of the daily minima,°C
+ths2dymx,Air temperature 2 m above ground; homogeneous monthly mean of the daily maximum,°C
