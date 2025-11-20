@@ -1,27 +1,40 @@
-Site:
+GLAMOS:
 https://www.glamos.ch/en/#/B43-03
 
-complete list: 
-GLAMOS (1881-2021). The Swiss Glaciers 1880-2018/19, Glaciological Reports No 1-140, Yearbooks of the Cryospheric Commission of the Swiss Academy of Sciences (SCNAT), published since 1964 by VAW / ETH Zurich, doi:10.18752/glrep_series.
+
+glaciers list: 
+GLAMOS (1881-2025). The Swiss Glaciers 1880-2022/23, Glaciological Reports No 1-142, Yearbooks of the Cryospheric Commission of the Swiss Academy of Sciences (SCNAT), published since 1964 by VAW / ETH Zurich, doi:10.18752/glrep_series.
+
 
 length change: 
 GLAMOS (2024). Swiss Glacier Length Change, release 2024, Glacier Monitoring Switzerland, doi:10.18750/lengthchange.2024.r2024.
 
+
 volume change: 
 GLAMOS (2024). Swiss Glacier Volume Change, release 2024, Glacier Monitoring Switzerland, doi:10.18750/volumechange.2024.r2024.
 
+
 mass balance op:
-GLAMOS (2024). Swiss Glacier Mass Balance, release 2024, Glacier Monitoring Switzerland, doi:10.18750/massbalance.2024.r2024.
+GLAMOS (2025). Swiss Glacier Mass Balance, release 2025, Glacier Monitoring Switzerland, doi:10.18750/massbalance.2025.r2025.
 
-mass balance op eb:
-GLAMOS (2024). Swiss Glacier Mass Balance, release 2024, Glacier Monitoring Switzerland, doi:10.18750/massbalance.2024.r2024.
 
-mass balance hy:
-GLAMOS (2024). Swiss Glacier Mass Balance, release 2024, Glacier Monitoring Switzerland, doi:10.18750/massbalance.2024.r2024.
+Meteoswiss: 
+https://www.meteoswiss.admin.ch/services-and-publications/service/open-data.html
+https://www.meteoswiss.admin.ch/services-and-publications/applications/ext/download-data-without-coding-skills.html#lang=en&mdt=homogenous&pgid=&sid=&col=&di=&tr=&hdr=
 
-mass balance hy eb:
-GLAMOS (2024). Swiss Glacier Mass Balance, release 2024, Glacier Monitoring Switzerland, doi:10.18750/massbalance.2024.r2024.
 
-ChatGPT OpenAI)
+Davos weather data:
+https://data.geo.admin.ch/ch.meteoschweiz.ogd-nbcn/dav/ogd-nbcn_dav_m.csv
+
+
+Sion weather data:
+https://data.geo.admin.ch/ch.meteoschweiz.ogd-nbcn/sio/ogd-nbcn_sio_m.csv
+
+
+weather metadata:
+https://data.geo.admin.ch/ch.meteoschweiz.ogd-nbcn/ogd-nbcn_meta_parameters.csv
+
+
+ChatGPT (OpenAI)
 
 le Chat (Mistral AI)
