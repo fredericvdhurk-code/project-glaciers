@@ -35,6 +35,16 @@ weather metadata:
 https://data.geo.admin.ch/ch.meteoschweiz.ogd-nbcn/ogd-nbcn_meta_parameters.csv
 
 
+ML for glaciers data predictions:
+
+Sjursen, K. H., Bolibar, J., van der Meer, M., Andreassen, L. M., Biesheuvel, J. P., Dunse, T., Huss, M., Maussion, F., Rounce, D. R., and Tober, B.: Machine learning improves seasonal mass balance prediction for unmonitored glaciers, The Cryosphere, 19, 5801–5826, https://doi.org/10.5194/tc-19-5801-2025, 2025.
+https://tc.copernicus.org/articles/19/5801/2025/
+
+Anilkumar, R., Bharti, R., Chutia, D., and Aggarwal, S. P.: Modelling point mass balance for the glaciers of the Central European Alps using machine learning techniques, The Cryosphere, 17, 2811–2828, https://doi.org/10.5194/tc-17-2811-2023, 2023.
+https://tc.copernicus.org/articles/17/2811/2023/
+
+
+
 ChatGPT (OpenAI)
 
 le Chat (Mistral AI)
