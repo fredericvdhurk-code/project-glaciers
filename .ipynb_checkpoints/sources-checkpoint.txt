@@ -56,7 +56,7 @@ Hock R. A distributed temperature-index ice- and snowmelt model including potent
 https://www.cambridge.org/core/journals/journal-of-glaciology/article/distributed-temperatureindex-ice-and-snowmelt-model-including-potential-direct-solar-radiation/2013F2D6B911401D67EA84728AF93629
 
 
+van der Meer, M., Zekollari, H., Huss, M., Bolibar, J., Sjursen, K. H., and Farinotti, D.: A minimal machine-learning glacier mass balance model, The Cryosphere, 19, 805–826, https://doi.org/10.5194/tc-19-805-2025, 2025.
 
-ChatGPT (OpenAI)
 
-le Chat (Mistral AI)
+
