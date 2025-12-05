@@ -1,14 +1,14 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import statsmodels.api as sm
+import os
+import sys
 from matplotlib.colors import LinearSegmentedColormap
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from matplotlib.backends.backend_pdf import PdfPages
-import os
 from matplotlib.backends.backend_pdf import PdfPages
-import statsmodels.api as sm
 from io import StringIO
-import sys
 
 
 
