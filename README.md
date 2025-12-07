@@ -8,15 +8,15 @@ Frédéric van den Hurk
 ---
 
 ## Overview
-This project aims to analyze the mass balance of glaciers by correlating weather data (temperature and precipitation) with glacier volume changes. The goal is to provide insights into how climate change and weather variability affect glacier health over time. The analysis is performed on 8 different glaciers of the swiss alps with help of three different weather stations spread over the relevant regions
+This project aims to analyze the mass balance of glaciers by correlating weather data (temperature and precipitation) with glacier volume changes. The goal is to provide insights into how climate change and weather variability affect glacier health over time. 
+The analysis is performed on 8 different glaciers of the swiss alps with help of weather data from 3 different weather stations spread across the relevant regions
 
-The analysis is performed on 8 different glaciers in the swiss alps with help of three different weather stations spread over the relevant regions.
 ---
 
 ## Features
 - **Data Integration**: Combines glacier mass balance data with historical time-series weather datasets.
 - **Visualization**: Generates plots of mass balance, weather data and relationships.
-- **ML Analysis**: Uses linear regression models to identify correlations and quantify the effects of weather anomalies on glacier mass balance.
+- **ML Analysis**: Uses linear regression models to quantify the effects of weather components on glacier mass balance.
 
 ---
 

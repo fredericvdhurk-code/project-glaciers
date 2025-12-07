@@ -1,4 +1,4 @@
-glacier name,glacier id,coordx (X_LV95),coordy (Y_LV95),glacier area (km2),survey year for glacier area (yyyy),length change,mass balance,volume change
+glacier name,glacier ID,coordx (X_LV95),coordy (Y_LV95),glacier area (km2),survey year for glacier area (yyyy),length change,mass balance,volume change
 Adlergletscher,B56-14,2634107,1095923,2.098,2015,0,1,1
 Allalingletscher,B52-29,2635415,1097376,9.089,2015,1,1,1
 Alphubelgletscher N,B55-15,2633152,1100698,0.085,2015,0,1,0
