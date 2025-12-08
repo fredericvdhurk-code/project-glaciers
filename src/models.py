@@ -10,6 +10,8 @@ from io import StringIO
 import sys
 import statsmodels.api as sm
 from statsmodels.stats.outliers_influence import variance_inflation_factor
+import scipy.stats as stats
+
 
 # --- Regression Analysis ---
 def load_data_regression(norm_period):
@@ -78,6 +80,23 @@ def run_regression_analysis(mass_balance_df, glacier_mappings, temp_cols, prec_c
             if len(reg_data_clean) == 0:
                 print(f"No valid data remaining for {glacier_name} after cleaning")
                 continue
+
+            # --- Correlation Analysis with Significance Testing ---
+            print("\nCorrelation Analysis with Significance Testing:")
+            corr_results = []
+            for col in reg_data_clean.columns:
+                if col != 'annual mass balance (mm w.e.)':
+                    corr_coef, p_val = stats.pearsonr(reg_data_clean[col], reg_data_clean['annual mass balance (mm w.e.)'])
+                    corr_results.append({
+                        'Variable': col,
+                        'Correlation Coefficient': corr_coef,
+                        'P-value': p_val,
+                        'Significant (p < 0.05)': p_val < 0.05
+                    })
+            corr_df = pd.DataFrame(corr_results)
+            print(corr_df.sort_values(by='Correlation Coefficient', ascending=False))
+
+            # --- Regression Analysis ---
             model = sm.OLS(reg_data_clean['annual mass balance (mm w.e.)'], reg_data_clean.drop('annual mass balance (mm w.e.)', axis=1)).fit()
             print(f"\nNumber of observations: {len(reg_data_clean)}")
             print("\nRegression Summary:")
