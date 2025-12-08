@@ -7,7 +7,6 @@ from matplotlib.backends.backend_pdf import PdfPages
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
 from io import StringIO
-import sys
 import statsmodels.api as sm
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
