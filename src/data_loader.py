@@ -10,6 +10,9 @@ from io import StringIO
 import sys
 import statsmodels.api as sm
 from statsmodels.stats.outliers_influence import variance_inflation_factor
+import scipy.stats as stats
+
+
 
 def process_glaciers_list(initial_list_df):
     """
@@ -361,7 +364,7 @@ def calculate_weather_deviations_1961_1990(city_data, city_name):
     # Define norms for each city (temperature and precipitation)
     norms = {
         'sion': {
-            'temp': [9.5, 3.4, -0.4, -0.8, -1.6, -5.3, -9.4, -13.7, -17.0, -19.1, -17.9, -14.6],
+            'temp': [9.5, 3.4, -0.4, -0.8, 1.6, 5.3, 9.4, 13.7, 17.0, 19.1, 17.9, 14.6],
             'precip': [50, 60, 61, 53, 57, 48, 36, 41, 52, 48, 55, 38]
         },
         'davos': {
@@ -460,9 +463,9 @@ def calculate_weather_deviations_1991_2020(city_data, city_name):
     """
     # Define precipitation norms for each city (1991-2020)
     precip_norms = {
-        'sion': [43, 50, 68, 52, 40, 37, 34, 52, 62, 60, 38],
-        'davos': [77, 71, 68, 70, 52, 57, 54, 89, 133, 150, 96],
-        'altdorf': [84, 81, 83, 70, 59, 72, 81, 117, 141, 154, 105]
+        'sion': [43, 50, 68, 52, 40, 37, 34, 52, 48, 62, 60, 38],
+        'davos': [77, 71, 68, 70, 52, 57, 54, 89, 129, 133, 150, 96],
+        'altdorf': [84, 81, 83, 70, 59, 72, 81, 117, 138, 141, 154, 105]
     }
 
     # Extract temperature deviation and precipitation data

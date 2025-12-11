@@ -9,7 +9,8 @@ from matplotlib.colors import LinearSegmentedColormap
 from io import StringIO
 import sys
 import statsmodels.api as sm
-from statsmodels.stats.outliers_influence import variance_inflation_factor
+import scipy.stats as stats
+
 
 
 from .data_loader import (
@@ -31,12 +32,18 @@ from .visualisation import (
     plot_mass_balance_for_glaciers_eb,
     plot_summer_temperature,
     plot_winter_precipitation,
-    plot_mass_balance_weather
-    )
-
-from .models import (
+    plot_mass_balance_weather,
     load_data_regression,
     run_regression_analysis,
     run_all_analyses_for_glacier,
     plot_regression_text
     )
+
+from .models import (
+    load_data_model,
+    prepare_monthly_data_model,
+    prepare_seasonal_data_model,
+    prepare_optimal_season_data_model,
+    train_model,
+    create_glacier_model_pdf
+)

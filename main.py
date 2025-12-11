@@ -7,8 +7,14 @@ from matplotlib.backends.backend_pdf import PdfPages
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
 from io import StringIO
+import sys
 import statsmodels.api as sm
-from statsmodels.stats.outliers_influence import variance_inflation_factor
+import scipy.stats as stats
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Ridge
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
 
 # Add the project root to the Python path
 sys.path.append(str(Path(__file__).parent))
@@ -37,7 +43,13 @@ from src import (
     load_data_regression,
     run_regression_analysis,
     run_all_analyses_for_glacier,
-    plot_regression_text
+    plot_regression_text,
+    load_data_model,
+    prepare_monthly_data_model,
+    prepare_seasonal_data_model,
+    prepare_optimal_season_data_model,
+    train_model,
+    create_glacier_model_pdf
 )
 
 def save_glacier_plots_individually(
@@ -150,6 +162,8 @@ def save_glacier_plots_individually(
                 pdf.savefig(fig)
                 plt.close(fig)
         print(f"Saved plots for {glacier} to {output_path}")
+
+
 
 def main():
     # Path to data folders
@@ -442,6 +456,44 @@ def main():
         davos_summer_norm_9120_t,
         davos_winter_norm_9120_p,
     )
+    print("Starting comprehensive glacier mass balance model analysis with random splits...")
+
+    # Load data
+    mass_balance_df, weather_data = load_data_model()
+
+    # Process each glacier
+    for glacier in glaciers:
+        print(f"\n{'='*80}")
+        print(f"Analyzing {glacier}")
+        print('='*80)
+
+        try:
+            # Prepare data for all three models
+            X_monthly, y_monthly, _ = prepare_monthly_data_model(glacier, mass_balance_df, weather_data)
+            X_seasonal, y_seasonal, _ = prepare_seasonal_data_model(glacier, mass_balance_df, weather_data)
+            X_optimal, y_optimal, _ = prepare_optimal_season_data_model(glacier, mass_balance_df, weather_data)
+
+            # Train all three models
+            monthly_result = train_model(X_monthly, y_monthly, glacier, "Monthly Deviations")
+            seasonal_result = train_model(X_seasonal, y_seasonal, glacier, "Seasonal Deviations")
+            optimal_result = train_model(X_optimal, y_optimal, glacier, "Optimal Seasonal Deviations")
+
+            # Create combined PDF for this glacier
+            create_glacier_model_pdf(glacier, {
+                "Monthly Deviations": monthly_result,
+                "Seasonal Deviations": seasonal_result,
+                "Optimal Seasonal Deviations": optimal_result
+            })
+
+            print(f"Completed analysis for {glacier}")
+
+        except Exception as e:
+            print(f"Error analyzing {glacier}: {str(e)}")
+            continue
+
+    print("\nAll model analyses complete!")
+
 
 if __name__ == "__main__":
     main()
+
