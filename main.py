@@ -12,9 +12,14 @@ import statsmodels.api as sm
 import scipy.stats as stats
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Ridge
+from sklearn.model_selection import train_test_split, KFold
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
+import warnings
+
+# Suppress warnings for cleaner output
+warnings.filterwarnings('ignore')
 
 # Add the project root to the Python path
 sys.path.append(str(Path(__file__).parent))
@@ -166,6 +171,7 @@ def save_glacier_plots_individually(
 
 
 def main():
+    print("running main.py...")
     # Path to data folders
     data_path = "/files/project-glaciers/data"
     raw_data_path = "/files/project-glaciers/data/raw_data"

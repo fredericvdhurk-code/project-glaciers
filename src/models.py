@@ -6,8 +6,11 @@ from matplotlib.backends.backend_pdf import PdfPages
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import train_test_split, KFold
+
 
 # Configuration
 data_path = "/files/project-glaciers/data"
@@ -234,6 +237,19 @@ def train_model(X, y, glacier_name, model_type):
         Ridge(alpha=1.0)  # Using Ridge for better stability
     )
 
+    # Calculate cross-validation RMSE
+    print("Calculating cross-validation RMSE...")
+    kf = KFold(n_splits=5, shuffle=True, random_state=42)
+    cv_scores = cross_val_score(
+        model, X, y,
+        cv=kf,
+        scoring='neg_root_mean_squared_error'
+    )
+    avg_cv_rmse = -cv_scores.mean()
+    cv_rmse_std = cv_scores.std()
+    print(f"Cross-validation RMSE: {avg_cv_rmse:.2f} (±{cv_rmse_std:.2f})")
+
+
     # Random train-test split (70-30) with shuffling
     print("Split type: Random 70-30 split")
     X_train, X_test, y_train, y_test = train_test_split(
@@ -267,6 +283,8 @@ def train_model(X, y, glacier_name, model_type):
 
     return {
         'model': model,
+        'cv_rmse': avg_cv_rmse,
+        'cv_rmse_std': cv_rmse_std,
         'rmse_train': rmse_train,
         'r2_train': r2_train,
         'rmse_test': rmse_test,
@@ -345,6 +363,7 @@ def create_glacier_model_pdf(glacier_name, results):
             # Add metrics to title
             plt.title(f"{model_type} Model\n"
                     f"Random 70-30 Split\n"
+                    f"CV RMSE: {result['cv_rmse']:.2f} (±{result['cv_rmse_std']:.2f})\n"
                     f"Train RMSE: {result['rmse_train']:.2f}, Test RMSE: {result['rmse_test']:.2f}\n"
                     f"Train R²: {result['r2_train']:.4f}, Test R²: {result['r2_test']:.4f}", fontsize=14)
 
@@ -371,6 +390,7 @@ def create_glacier_model_pdf(glacier_name, results):
             # Create table data
             table_data = [
                 ["Metric", "Value"],
+                ["Cross-Validation RMSE", f"{result['cv_rmse']:.2f} (±{result['cv_rmse_std']:.2f})"],
                 ["Training RMSE", f"{result['rmse_train']:.2f}"],
                 ["Training R²", f"{result['r2_train']:.4f}"],
                 ["Test RMSE", f"{result['rmse_test']:.2f}"],
@@ -401,5 +421,3 @@ def create_glacier_model_pdf(glacier_name, results):
             plt.close()
 
     print(f"Saved combined results for {glacier_name} to {pdf_path}")
-
-

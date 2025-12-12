@@ -292,9 +292,9 @@ def run_regression_analysis(mass_balance_df, glacier_mappings, temp_cols, prec_c
     sys.stdout = captured_output
     
     for glacier_name, weather_data in glacier_mappings.items():
-        print(f"\n{'='*80}")
+        print(f"\n{'='*88}")
         print(f"{analysis_name} for {glacier_name} using {norm_period} climate norms")
-        print('='*80)
+        print('='*88)
         try:
             mb_data = mass_balance_df[mass_balance_df['glacier name'] == glacier_name][['annual mass balance (mm w.e.)']].copy()
             mb_data = mb_data.reset_index(drop=True)
@@ -331,11 +331,6 @@ def run_regression_analysis(mass_balance_df, glacier_mappings, temp_cols, prec_c
                 if col != 'annual mass balance (mm w.e.)':
                     # Skip constant columns (variance = 0)
                     if reg_data_clean[col].var() == 0:
-                        print(f"Skipping constant column: {col}")
-                        continue
-
-                    # Skip columns with 'const' in the name
-                    if 'const' in col.lower():
                         print(f"Skipping constant column: {col}")
                         continue
 
