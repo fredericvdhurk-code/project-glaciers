@@ -16,6 +16,7 @@ from sklearn.model_selection import train_test_split, KFold
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import TimeSeriesSplit
 import warnings
 
 # Suppress warnings for cleaner output
@@ -49,6 +50,7 @@ from src import (
     run_regression_analysis,
     run_all_analyses_for_glacier,
     plot_regression_text,
+    save_glacier_plots_individually,
     load_data_model,
     prepare_monthly_data_model,
     prepare_seasonal_data_model,
@@ -56,117 +58,6 @@ from src import (
     train_model,
     create_glacier_model_pdf
 )
-
-def save_glacier_plots_individually(
-    length_change_df,
-    mass_balance_hy_df,
-    mass_balance_hy_eb_df,
-    glaciers,
-    output_dir,
-    sion_summer,
-    sion_winter,
-    altdorf_summer,
-    altdorf_winter,
-    davos_summer,
-    davos_winter,
-    glaciers_weather_mapping,
-    sion_summer_norm_6190_t,
-    sion_winter_norm_6190_p,
-    altdorf_summer_norm_6190_t,
-    altdorf_winter_norm_6190_p,
-    davos_summer_norm_6190_t,
-    davos_winter_norm_6190_p,
-    sion_summer_norm_9120_t,
-    sion_winter_norm_9120_p,
-    altdorf_summer_norm_9120_t,
-    altdorf_winter_norm_9120_p,
-    davos_summer_norm_9120_t,
-    davos_winter_norm_9120_p,
-):
-    os.makedirs(output_dir, exist_ok=True)
-    for glacier in glaciers:
-        glacier_df = prepare_glacier_data(glacier, length_change_df)
-        mb_df = prepare_mass_balance_data(glacier, mass_balance_hy_df, "annual")
-        output_path = os.path.join(output_dir, f"{glacier.replace(' ', '_')}_analyses.pdf")
-        with PdfPages(output_path) as pdf:
-            # Glacier plots
-            if glacier_df is not None:
-                fig1 = plot_glacier_length_change_bar(glacier_df, glacier)
-                if fig1:
-                    pdf.savefig(fig1)
-                    plt.close(fig1)
-            if glacier_df is not None:
-                fig2 = plot_glacier_cumulative_length_change(glacier_df, glacier)
-                if fig2:
-                    pdf.savefig(fig2)
-                    plt.close(fig2)
-            if mb_df is not None:
-                fig3 = plot_mass_balance_bar(mb_df, glacier, "annual")
-                if fig3:
-                    pdf.savefig(fig3)
-                    plt.close(fig3)
-            if mb_df is not None:
-                fig4 = plot_cumulative_mass_balance(mb_df, glacier)
-                if fig4:
-                    pdf.savefig(fig4)
-                    plt.close(fig4)
-            fig5 = plot_mass_balance_for_glaciers_eb(mass_balance_hy_eb_df, glacier)
-            if fig5:
-                pdf.savefig(fig5)
-                plt.close(fig5)
-            # Weather plots
-            if glacier in ['Grosser Aletschgletscher', 'Allalingletscher', 'Hohlaubgletscher', 'Griesgletscher', 'Schwarzberggletscher', 'Glacier du Giétro']:
-                fig6 = plot_summer_temperature(sion_summer, 'Sion', sion_summer_norm_6190_t, sion_summer_norm_9120_t)
-                if fig6:
-                    pdf.savefig(fig6)
-                    plt.close(fig6)
-                fig7 = plot_winter_precipitation(sion_winter, 'Sion', sion_winter_norm_6190_p, sion_winter_norm_9120_p)
-                if fig7:
-                    pdf.savefig(fig7)
-                    plt.close(fig7)
-            elif glacier == 'Claridenfirn':
-                fig6 = plot_summer_temperature(altdorf_summer, 'Altdorf', altdorf_summer_norm_6190_t, altdorf_summer_norm_9120_t)
-                if fig6:
-                    pdf.savefig(fig6)
-                    plt.close(fig6)
-                fig7 = plot_winter_precipitation(altdorf_winter, 'Altdorf', altdorf_winter_norm_6190_p, altdorf_winter_norm_9120_p)
-                if fig7:
-                    pdf.savefig(fig7)
-                    plt.close(fig7)
-            elif glacier == 'Silvrettagletscher':
-                fig6 = plot_summer_temperature(davos_summer, 'Davos', davos_summer_norm_6190_t, davos_summer_norm_9120_t)
-                if fig6:
-                    pdf.savefig(fig6)
-                    plt.close(fig6)
-                fig7 = plot_winter_precipitation(davos_winter, 'Davos', davos_winter_norm_6190_p, davos_winter_norm_9120_p)
-                if fig7:
-                    pdf.savefig(fig7)
-                    plt.close(fig7)
-            # Mass balance vs. weather plots
-            if glacier in glaciers_weather_mapping:
-                mapping = glaciers_weather_mapping[glacier]
-                fig8, fig9 = plot_mass_balance_weather(
-                    glacier,
-                    mapping["temp_data"],
-                    mapping["temp_column"],
-                    mapping["mass_balance_summer"],
-                    mapping["mass_balance_winter"],
-                    mapping["precip_data"],
-                    mapping["precip_column"]
-                )
-                if fig8:
-                    pdf.savefig(fig8)
-                    plt.close(fig8)
-                if fig9:
-                    pdf.savefig(fig9)
-                    plt.close(fig9)
-            # Regression summaries
-            regression_outputs = run_all_analyses_for_glacier(glacier)
-            for key, output in regression_outputs.items():
-                fig = plot_regression_text(output, f"Regression: {key.replace('_', ' ').title()}")
-                pdf.savefig(fig)
-                plt.close(fig)
-        print(f"Saved plots for {glacier} to {output_path}")
 
 
 

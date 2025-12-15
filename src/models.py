@@ -10,6 +10,9 @@ from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split, KFold
+from sklearn.model_selection import TimeSeriesSplit
+from sklearn.linear_model import LinearRegression
+
 
 
 # Configuration
@@ -225,36 +228,35 @@ def prepare_optimal_season_data_model(glacier_name, mass_balance_df, weather_dat
     return X, y, data
 
 def train_model(X, y, glacier_name, model_type):
-    """Train and evaluate a linear regression model with random split"""
+    """Train and evaluate a linear regression model with time series split"""
     print(f"\nTraining {model_type} model for {glacier_name}...")
 
     if len(X) < 5:
         raise ValueError(f"Not enough data points ({len(X)}) to train model for {glacier_name}")
 
-    # Create pipeline with standardization
+    # Create pipeline with standardization and linear regression (no Ridge)
     model = make_pipeline(
         StandardScaler(),
-        Ridge(alpha=1.0)  # Using Ridge for better stability
+        LinearRegression()  
     )
 
-    # Calculate cross-validation RMSE
-    print("Calculating cross-validation RMSE...")
-    kf = KFold(n_splits=5, shuffle=True, random_state=42)
+    # Time series cross-validation
+    print("Calculating time series cross-validation RMSE...")
+    tscv = TimeSeriesSplit(n_splits=5)
     cv_scores = cross_val_score(
         model, X, y,
-        cv=kf,
+        cv=tscv,
         scoring='neg_root_mean_squared_error'
     )
     avg_cv_rmse = -cv_scores.mean()
     cv_rmse_std = cv_scores.std()
-    print(f"Cross-validation RMSE: {avg_cv_rmse:.2f} (±{cv_rmse_std:.2f})")
+    print(f"Time series cross-validation RMSE: {avg_cv_rmse:.2f} (±{cv_rmse_std:.2f})")
 
-
-    # Random train-test split (70-30) with shuffling
-    print("Split type: Random 70-30 split")
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.3, shuffle=True, random_state=42
-    )
+    # Time series train-test split (first 80% train, last 20% test, no shuffling)
+    print("Split type: Time series 80-20 split")
+    split_idx = int(0.8 * len(X))
+    X_train, X_test = X.iloc[:split_idx], X.iloc[split_idx:]
+    y_train, y_test = y.iloc[:split_idx], y.iloc[split_idx:]
 
     # Train model
     model.fit(X_train, y_train)
@@ -272,8 +274,8 @@ def train_model(X, y, glacier_name, model_type):
     print(f"Test RMSE: {rmse_test:.2f}, R²: {r2_test:.4f}")
 
     # Get coefficients and intercept for interpretation
-    coefficients = model.named_steps['ridge'].coef_
-    intercept = model.named_steps['ridge'].intercept_
+    coefficients = model.named_steps['linearregression'].coef_
+    intercept = model.named_steps['linearregression'].intercept_
     feature_names = X.columns
 
     print("\nModel Coefficients and Intercept:")
@@ -362,7 +364,7 @@ def create_glacier_model_pdf(glacier_name, results):
 
             # Add metrics to title
             plt.title(f"{model_type} Model\n"
-                    f"Random 70-30 Split\n"
+                    f"Time Series 80-20 Split\n"
                     f"CV RMSE: {result['cv_rmse']:.2f} (±{result['cv_rmse_std']:.2f})\n"
                     f"Train RMSE: {result['rmse_train']:.2f}, Test RMSE: {result['rmse_test']:.2f}\n"
                     f"Train R²: {result['r2_train']:.4f}, Test R²: {result['r2_test']:.4f}", fontsize=14)

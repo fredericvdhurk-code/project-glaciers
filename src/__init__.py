@@ -36,7 +36,8 @@ from .visualisation import (
     load_data_regression,
     run_regression_analysis,
     run_all_analyses_for_glacier,
-    plot_regression_text
+    plot_regression_text,
+    save_glacier_plots_individually
     )
 
 from .models import (

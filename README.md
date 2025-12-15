@@ -34,7 +34,7 @@ The analyses are performed on 8 different glaciers of the swiss alps with help o
   - Glacier data: GLAMOS website
   - Weather data: Meteoswiss homogenous weather time-series 
 
-- **Key Findings**:
+- **Key Results**:
   - RMSE: range from 390 to 1000
   - R²: up to 0.77
 
@@ -45,3 +45,10 @@ The analyses are performed on 8 different glaciers of the swiss alps with help o
    ```bash
    git clone [https://github.com/fredericvdhurk-code/project-glaciers]
    cd project-glaciers
+
+---
+
+## Run
+1. **Run main.py**
+    see code functions in src folder
+    see the results as pdf documents in the results folder
