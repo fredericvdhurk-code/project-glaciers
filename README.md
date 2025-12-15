@@ -28,7 +28,7 @@ Expected output: Figures and tables displaying data and results.
 ---
 
 ## Project Structure
-
+```
 project-glaciers/
 ├── main.py              # Main entry point
 ├── src/                 # Source code
@@ -46,10 +46,10 @@ project-glaciers/
 ├── PROPOSAL.md          # Initial project proposal
 ├── AI_USAGE.md          # Description of AI usage
 └── environment.yml      # Dependencies
-
+```
 ## Results
-- Good RMSE for 3 of the glaciers
-- Good R² values for the visualisation regressions
+- Good RMSE for 3 of the glaciers (between 300 and 500 mm w.e.)
+- Good R² values for the visualisation regressions (up to 0.77)
 
 ## Requirements
 - Python 3.11
