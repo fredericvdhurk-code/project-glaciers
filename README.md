@@ -48,7 +48,7 @@ project-glaciers/
 └── environment.yml      # Dependencies
 
 ## Results
-- Promising RMSE for 3 of the glaciers
+- Good RMSE for 3 of the glaciers
 - Good R² values for the visualisation regressions
 
 ## Requirements
