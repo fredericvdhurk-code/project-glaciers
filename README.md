@@ -7,9 +7,7 @@ Frédéric van den Hurk
 
 ## Research question: How can we assess the impacts of weather components on glacier mass balance, and can we use these to predict glacier retreat?
 
-## Setup
-
-# Create environment
+## Create environment
 conda env create -f environment.yml
 conda activate project-glaciers
 
