@@ -13,9 +13,10 @@ Using Python, I analyse time-series data to visualise trends by means of figures
 # Setup
 
 ## Create environment
+```
 conda env create -f environment.yml
 conda activate project-glaciers
-
+```
 ## Usage
 
 python main.py
