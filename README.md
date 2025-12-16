@@ -44,13 +44,14 @@ project-glaciers/
 │   └── data_notebooks   # Jupyter notebooks for data uploading
 ├── README.md
 ├── PROPOSAL.md          # Initial project proposal
-├── AI_USAGE.md          # Description of AI usage
 └── environment.yml      # Dependencies
 ```
 ## Results
 - Good RMSE for 3 of the glaciers (between 300 and 500 mm w.e.)
 - Good R² values for the visualisation regressions (up to 0.77)
 
+---
+
 ## Requirements
 - Python 3.11
-- sklearn, pandas, matplotlib, numpy, statsmodels, scipy, os, sys, pathlib, io, warnings
+- pandas, numpy, matplotlib, statsmodels, scipy, scikit-learn
