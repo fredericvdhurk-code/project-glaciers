@@ -5,11 +5,7 @@ Frédéric van den Hurk
 
 **Predicting glacier balance with summer temperature and winter precipitation.**
 
----
-
 ## Research question: How can we assess the impacts of weather components on glacier mass balance, and can we use these to predict glacier retreat?
-
----
 
 ## Setup
 
@@ -17,15 +13,11 @@ Frédéric van den Hurk
 conda env create -f environment.yml
 conda activate project-glaciers
 
----
-
 ## Usage
 
 python main.py
 
 Expected output: Figures and tables displaying data and results.
-
----
 
 ## Project Structure
 ```
@@ -49,8 +41,6 @@ project-glaciers/
 ## Results
 - Good RMSE for 3 of the glaciers (between 300 and 500 mm w.e.)
 - Good R² values for the visualisation regressions (up to 0.77)
-
----
 
 ## Requirements
 - Python 3.11
