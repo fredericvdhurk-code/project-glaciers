@@ -18,6 +18,7 @@ conda env create -f environment.yml
 conda activate project-glaciers
 ```
 ## Usage
+cd project-glaciers
 
 python main.py
 
