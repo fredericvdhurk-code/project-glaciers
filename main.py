@@ -20,7 +20,7 @@ from sklearn.model_selection import TimeSeriesSplit
 import warnings
 
 # Suppress warnings for cleaner output
-warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore') 
 
 # Add the project root to the Python path
 sys.path.append(str(Path(__file__).parent))

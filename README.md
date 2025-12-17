@@ -12,19 +12,23 @@ Using Python, I analyse time-series data to visualise trends by means of figures
 
 # Setup
 
+## Access the directory
+```
+cd project-glaciers
+```
+
 ## Create environment
 ```
 conda env create -f environment.yml
 conda activate project-glaciers
 ```
 ## Usage
-
-python main.py
-
-Expected output: Figures and tables displaying data and results.
-
-## Project Structure
 ```
+python main.py
+Expected output: Figures and tables displaying data and results.
+```
+## Project Structure
+``
 project-glaciers/
 ├── main.py              # Main entry point
 ├── src/                 # Source code
