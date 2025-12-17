@@ -25,7 +25,7 @@ conda activate project-glaciers
 ```
 python main.py
 ```
-Expected output: Figures and tables ìn PDF files displaying data and result.
+Expected output: Figures and tables in PDF files displaying data and result.
 
 ## Project Structure
 ```
