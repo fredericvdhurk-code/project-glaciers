@@ -64,8 +64,8 @@ from src import (
 def main():
     print("running main.py...")
     # Path to data folders
-    data_path = "/files/project-glaciers/data"
-    raw_data_path = "/files/project-glaciers/data/raw_data"
+    data_path = "data"
+    raw_data_path = "data/raw_data"
     os.makedirs(data_path, exist_ok=True)
     os.makedirs(raw_data_path, exist_ok=True)
 
@@ -332,7 +332,7 @@ def main():
         mass_balance_hy_df,
         mass_balance_hy_eb_df,
         glaciers,
-        '/files/project-glaciers/results',
+        'results',
         sion_summer,
         sion_winter,
         altdorf_summer,

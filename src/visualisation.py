@@ -260,21 +260,21 @@ def plot_mass_balance_weather(
 
 # --- Regression Analysis ---
 def load_data_regression(norm_period):
-    mass_balance_df = pd.read_csv('/files/project-glaciers/data/mass_balance_hy.csv').iloc[::-1].reset_index(drop=True)
+    mass_balance_df = pd.read_csv('data/mass_balance_hy.csv').iloc[::-1].reset_index(drop=True)
     if norm_period == "1961-1990":
-        davos_dev_temp = pd.read_csv('/files/project-glaciers/data/weather_dev6190_davos_temp.csv').iloc[::-1].reset_index(drop=True)
-        davos_dev_prec = pd.read_csv('/files/project-glaciers/data/weather_dev6190_davos_prec.csv').iloc[::-1].reset_index(drop=True)
-        sion_dev_temp = pd.read_csv('/files/project-glaciers/data/weather_dev6190_sion_temp.csv').iloc[::-1].reset_index(drop=True)
-        sion_dev_prec = pd.read_csv('/files/project-glaciers/data/weather_dev6190_sion_prec.csv').iloc[::-1].reset_index(drop=True)
-        altdorf_dev_temp = pd.read_csv('/files/project-glaciers/data/weather_dev6190_altdorf_temp.csv').iloc[::-1].reset_index(drop=True)
-        altdorf_dev_prec = pd.read_csv('/files/project-glaciers/data/weather_dev6190_altdorf_prec.csv').iloc[::-1].reset_index(drop=True)
+        davos_dev_temp = pd.read_csv('data/weather_dev6190_davos_temp.csv').iloc[::-1].reset_index(drop=True)
+        davos_dev_prec = pd.read_csv('data/weather_dev6190_davos_prec.csv').iloc[::-1].reset_index(drop=True)
+        sion_dev_temp = pd.read_csv('data/weather_dev6190_sion_temp.csv').iloc[::-1].reset_index(drop=True)
+        sion_dev_prec = pd.read_csv('data/weather_dev6190_sion_prec.csv').iloc[::-1].reset_index(drop=True)
+        altdorf_dev_temp = pd.read_csv('data/weather_dev6190_altdorf_temp.csv').iloc[::-1].reset_index(drop=True)
+        altdorf_dev_prec = pd.read_csv('data/weather_dev6190_altdorf_prec.csv').iloc[::-1].reset_index(drop=True)
     else:
-        davos_dev_temp = pd.read_csv('/files/project-glaciers/data/weather_dev9120_davos_temp.csv').iloc[::-1].reset_index(drop=True)
-        davos_dev_prec = pd.read_csv('/files/project-glaciers/data/weather_dev9120_davos_prec.csv').iloc[::-1].reset_index(drop=True)
-        sion_dev_temp = pd.read_csv('/files/project-glaciers/data/weather_dev9120_sion_temp.csv').iloc[::-1].reset_index(drop=True)
-        sion_dev_prec = pd.read_csv('/files/project-glaciers/data/weather_dev9120_sion_prec.csv').iloc[::-1].reset_index(drop=True)
-        altdorf_dev_temp = pd.read_csv('/files/project-glaciers/data/weather_dev9120_altdorf_temp.csv').iloc[::-1].reset_index(drop=True)
-        altdorf_dev_prec = pd.read_csv('/files/project-glaciers/data/weather_dev9120_altdorf_prec.csv').iloc[::-1].reset_index(drop=True)
+        davos_dev_temp = pd.read_csv('data/weather_dev9120_davos_temp.csv').iloc[::-1].reset_index(drop=True)
+        davos_dev_prec = pd.read_csv('data/weather_dev9120_davos_prec.csv').iloc[::-1].reset_index(drop=True)
+        sion_dev_temp = pd.read_csv('data/weather_dev9120_sion_temp.csv').iloc[::-1].reset_index(drop=True)
+        sion_dev_prec = pd.read_csv('data/weather_dev9120_sion_prec.csv').iloc[::-1].reset_index(drop=True)
+        altdorf_dev_temp = pd.read_csv('data/weather_dev9120_altdorf_temp.csv').iloc[::-1].reset_index(drop=True)
+        altdorf_dev_prec = pd.read_csv('data/weather_dev9120_altdorf_prec.csv').iloc[::-1].reset_index(drop=True)
     glacier_mappings = {
         'Grosser Aletschgletscher': {'temp': sion_dev_temp, 'prec': sion_dev_prec},
         'Allalingletscher': {'temp': sion_dev_temp, 'prec': sion_dev_prec},

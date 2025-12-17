@@ -16,8 +16,8 @@ from sklearn.linear_model import LinearRegression
 
 
 # Configuration
-data_path = "/files/project-glaciers/data"
-results_path = "/files/project-glaciers/results/model_results"
+data_path = "data"
+results_path = "results/model_results"
 os.makedirs(results_path, exist_ok=True)
 
 # Glaciers to analyze
