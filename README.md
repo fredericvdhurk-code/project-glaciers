@@ -40,9 +40,8 @@ project-glaciers/
 │   └── model_results    # ML model plots and metrics in pdf files
 ├── data/                # Processed data
 │   └── raw_data         # Uploaded raw data
-├── notebooks            # Jupyter notebooks for visualisation
-│   └── data_notebooks   # Jupyter notebooks for data uploading
 ├── README.md
+├── .gitignore           
 ├── PROPOSAL.md          # Initial project proposal
 └── environment.yml      # Dependencies
 ```
