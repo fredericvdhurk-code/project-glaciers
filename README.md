@@ -40,10 +40,10 @@ project-glaciers/
 │   └── model_results    # ML model plots and metrics in pdf files
 ├── data/                # Processed data
 │   └── raw_data         # Uploaded raw data
+├── environment.yml      # Dependencies
+├── .gitignore
 ├── README.md
-├── environment.yml      # Dependencies          
-├── PROPOSAL.md          # Initial project proposal
-└── .gitignore       
+└── PROPOSAL.md          # Initial project proposal
 ```
 ## Results
 - Good RMSE for 3 of the glaciers (between 300 and 500 mm w.e.)
