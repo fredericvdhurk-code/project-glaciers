@@ -3,7 +3,7 @@ Frédéric van den Hurk
 
 # Analysis of eight Swiss glaciers
 
-**Predicting glacier balance with summer temperature and winter precipitation.**
+**Predicting glacier mass balance with summer temperature and winter precipitation.**
 
 ## Research question: How can we assess the impacts of weather components on glacier mass balance, and can we use these to predict glacier retreat?
 Using Python, I analyse time-series data to visualise trends by means of figures, quantify relationships with linear regressions and build a machine learning model that predicts annual mass balance. 
